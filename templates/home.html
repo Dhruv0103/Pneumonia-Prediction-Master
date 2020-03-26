@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload</title>
+        <link rel="stylesheet" type="text/css" href="submitfont.css">
+        <style>
+body{
+    height:100%;
+   width:100%;
+   background-image:"C:\Users\dhruv\Desktop\AI\pnemonia disease\templates\djhome.jpg";
+   background-repeat:no-repeat;
+   background-size:cover;
+   /*css hack for ie*/     
+   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.image.jpg',sizingMethod='scale');
+   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.jpg',sizingMethod='scale')";
+}
+input {
+
+background: #B9DFFF;
+left: 550px;
+top: 300px; 
+color: #fff;
+
+border: 2px solid #eee;
+font-size: 20px;
+border-radius: 20px;
+position:relative;
+box-shadow: 5px 5px 5px #eee;
+
+text-shadow:none;
+
+}
+
+input:hover {
+
+background: #016ABC;
+
+color: #fff;
+
+border: 1px solid #eee;
+
+border-radius: 20px;
+
+box-shadow: 5px 5px 5px #eee;
+
+text-shadow:none;
+
+}
+.prediction {
+  position:absolute;
+  color: black;
+  left: 570px;
+  top: 350px;
+    font-size: 20px;
+    font-family: "Times New Roman";
+    font-weight:bold;
+}</style>
+</head>
+<body background="download.jpg" background-repeat:no-repeat  background-size:cover>
+    <form id="upload-form" action="{{ url_for('pneumonia')}}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/jpeg" multiple>
+        <input type="submit" value="predict">
+    </form>
+    <div class="prediction">
+        {{ prediction_text }}
+    </div>
+</body>
+</html>
